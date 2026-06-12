@@ -1,23 +1,38 @@
 <?php
-include_once('config.php');
+include("config.php");
 
-if(isset($_POST['submit'])){
+if($_SERVER["REQUEST_METHOD"] == "POST"){
 
-    $nome = $_POST['nome'];
-    $senha = $_POST['senha'];
-    $email = $_POST['email'];
-    $turma = $_POST['turma'];
-    $turno = $_POST['turno'];
-    $cargo = $_POST['cargo'];
+    $nome = $_POST["nome"];
+    $email = $_POST["email"];
+    $turma = $_POST["turma"];
+    $turno = $_POST["turno"];
+    $cargo = $_POST["cargo"];
 
-    $result = mysqli_query($conexao, "INSERT INTO clientes(nome, senha, email, turma, turno, cargo) VALUES ('$nome, $senha, $email, $turma, $turno, $cargo)");
+    $senha = password_hash($_POST["senha"], PASSWORD_DEFAULT);
 
-    header('Location: login.php');
+$stmt = $conexao->prepare("
+    INSERT INTO cliente(nome,email,senha,turma,turno,cargo)
+    VALUES(?,?,?,?,?,?)
+");
 
+$stmt->bind_param(
+    "ssssss",
+    $nome,
+    $email,
+    $senha,
+    $turma,
+    $turno,
+    $cargo
+);
+
+    if($stmt->execute()){
+        header("Location: login.php");
+        exit;
+    }
+
+    echo "Erro ao cadastrar.";
 }
-
-
-
 
 ?>
 <!DOCTYPE html>
@@ -50,21 +65,33 @@ if(isset($_POST['submit'])){
 
         <h1 class="h1-sigin"> Cadastro </h1>
 
-        <form action="/cadastro" method="post">
+        <form method="POST">
 
             <!--input de usuario-->
             <label for="usuario" class="label"> Usuario: </label>
-            <input type="text" name="usuario" placeholder="nome de usuario" class="input-usuario">
+            <input type="text" name="nome" placeholder="nome de usuario" class="input-usuario" required>
             <br>
 
             <!--input de senha-->
             <label for="senha" class="label"> Senha: </label>
-            <input type="password" name="senha" placeholder="digite sua senha" class="input-senha">
+            <input type="password" name="senha" placeholder="digite sua senha" class="input-senha" required>
             <br>
 
             <!--input de email-->
             <label for="email" class="label"> E-mail: </label>
-            <input type="email" name="email" placeholder="digite seu e-mail" class="input-email">
+            <input type="email" name="email" placeholder="digite seu e-mail" class="input-email" required>
+            <br>
+
+            <label for="email" class="label"> Turma: </label>
+            <input type="text" name="turma" placeholder="digite sua turma" class="input-email">
+            <br>
+
+            <label for="email" class="label"> Turno: </label>
+            <input type="text" name="turno" placeholder="digite seu turno" class="input-email" required>
+            <br>
+
+             <label for="email" class="label"> Cargo: </label>
+            <input type="text" name="cargo" placeholder="digite seu cargo" class="input-email" required>
             <br>
 
             <!--butaun :3c-->

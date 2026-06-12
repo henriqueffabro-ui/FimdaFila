@@ -5,13 +5,14 @@ $dbUsername = 'root';
 $dbPassword = '';
 $dbName = 'banco_fila';
 
-$conexao = new_mysqli($dbHost, $dbUsername, $dbPassword, $dbName);
+$conexao = new mysqli($dbHost, $dbUsername, $dbPassword, $dbName);
 
-if($conexao->connect_error){
-    echo "Falha na Conexão";
-}
-else {
-    echo "Conexão Bem-Sucedida!";
-}
+//teste de conexão
+//if($conexao->connect_error){
+  //  echo "Falha na Conexão";
+//}
+//else {
+  //  echo "Conexão Bem-Sucedida!";
+//}
 
 ?>
