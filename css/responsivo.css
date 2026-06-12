@@ -1,0 +1,40 @@
+@media(max-width: 1500px) {
+
+    
+
+    .container-bemvindo {
+        top:4.5vw;
+        left:40vw;
+    }
+
+    .img-urutau {
+        top:9.3vw;
+        left:10vw;
+    }
+
+    .img-bemtevi {
+        top:7.5vw;
+        left:23vw;
+    }
+
+    .img-sangue-de-boi {
+        top:7.5vw;
+        left:54.5vw;
+    }
+
+    .img-aguiacareca {
+        top:9.3vw;
+        left:70vw;
+    }
+
+    .container-login{
+        top:4.5vw;
+        left:40vw;
+    }
+
+    .container-cadastro{
+        top:4.5vw;
+        left:40vw;
+    }
+
+}
