@@ -18,6 +18,7 @@ if(!isset($_SESSION["id"])){
 <?php if(isset($_SESSION['cargo']) && $_SESSION['cargo'] == 'Admin'){ ?>
 
     <a href="adm.php">Painel Administrativo</a><br>
+    <a href="adm_lanches.php">Gerenciar Lanches</a><br>
 
 <?php } ?>
 

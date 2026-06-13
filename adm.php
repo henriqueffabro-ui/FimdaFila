@@ -52,6 +52,7 @@ $result = $conexao->query($sql);
 <body>
 
 <button onclick="location.href='index.php'">Voltar</button>
+<button onclick="location.href='adm_lanches.php'">Gerenciar Lanches</button>
 
 <h1>Painel Administrativo</h1>
 
