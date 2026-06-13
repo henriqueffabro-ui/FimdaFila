@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 13/06/2026 às 02:32
+-- Tempo de geração: 14/06/2026 às 00:40
 -- Versão do servidor: 10.4.32-MariaDB
 -- Versão do PHP: 8.2.12
 
@@ -70,7 +70,7 @@ INSERT INTO `lanches` (`id`, `nome`, `preco`, `qtd`) VALUES
 (4, 'Mini Pizza de Frango Catupiry', 8, 96),
 (5, 'Hamburguer de Forno', 8, 100),
 (6, 'Salgado Assado de Pizza', 8, 100),
-(7, 'Salgado Assado de Frango', 8, 100),
+(7, 'Salgado Assado de Frango', 8, 98),
 (8, 'Salgado Assado de Frango', 8, 100);
 
 -- --------------------------------------------------------
@@ -110,8 +110,8 @@ INSERT INTO `pedido` (`id`, `nome_cliente`, `id_cliente`, `nome_lanche`, `id_lan
 (9, 'Henrique F', 9, 'Mini Pizza de Calabresa', 1, 8, '2M', 'Tarde', 'Estudante', 1, 'pendente', '2026-06-15'),
 (10, 'Henrique F', 9, 'Mini Pizza de Calabresa', 1, 8, '2M', 'Tarde', 'Estudante', 1, 'pendente', '2026-06-15'),
 (11, 'Admin', 12, 'Salgado Assado de Frango', 7, 8, '', 'Todos', 'Admin', 1, 'pendente', '2026-06-15'),
-(12, 'Admin', 12, 'Salgado Assado de Frango', 7, 8, '', 'Todos', 'Admin', 1, 'pendente', '2026-06-15'),
-(13, 'Admin', 12, 'Salgado Assado de Frango', 7, 8, '', 'Todos', 'Admin', 1, 'pendente', '2026-06-15');
+(12, 'Admin', 12, 'Salgado Assado de Frango', 7, 8, '', 'Todos', 'Admin', 1, 'pago', '2026-06-15'),
+(13, 'Admin', 12, 'Salgado Assado de Frango', 7, 8, '', 'Todos', 'Admin', 1, 'entregue', '2026-06-15');
 
 --
 -- Índices para tabelas despejadas
@@ -122,7 +122,8 @@ INSERT INTO `pedido` (`id`, `nome_cliente`, `id_cliente`, `nome_lanche`, `id_lan
 --
 ALTER TABLE `cliente`
   ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `email` (`email`);
+  ADD UNIQUE KEY `email` (`email`),
+  ADD UNIQUE KEY `email_2` (`email`);
 
 --
 -- Índices de tabela `lanches`
@@ -152,7 +153,7 @@ ALTER TABLE `cliente`
 -- AUTO_INCREMENT de tabela `lanches`
 --
 ALTER TABLE `lanches`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT de tabela `pedido`
