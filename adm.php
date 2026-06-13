@@ -1,0 +1,146 @@
+<?php
+session_start();
+include("config.php");
+
+if(
+    !isset($_SESSION['cargo']) ||
+    $_SESSION['cargo'] != 'Admin'
+){
+    die("Acesso negado.");
+}
+
+// futuramente verificar se é administrador
+
+$sql = "SELECT * FROM pedido ORDER BY id DESC";
+$result = $conexao->query($sql);
+?>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Painel Administrativo</title>
+
+    <style>
+
+        table{
+            border-collapse: collapse;
+            width:100%;
+        }
+
+        td, th{
+            border:1px solid #ccc;
+            padding:10px;
+        }
+
+        .pendente{
+            color:orange;
+            font-weight:bold;
+        }
+
+        .pago{
+            color:green;
+            font-weight:bold;
+        }
+
+        .entregue{
+            color:blue;
+            font-weight:bold;
+        }
+    </style>
+
+</head>
+<body>
+
+<button onclick="location.href='index.php'">Voltar</button>
+
+<h1>Painel Administrativo</h1>
+
+<table>
+
+<tr>
+    <th>ID</th>
+    <th>Cliente</th>
+    <th>Lanche</th>
+    <th>Qtd</th>
+    <th>Valor</th>
+    <th>Data de Retirada</th>
+    <th>Status</th>
+    <th>Ação</th>
+</tr>
+
+<?php while($pedido = $result->fetch_assoc()) { ?>
+
+<tr>
+
+    <td><?= $pedido['id'] ?></td>
+
+    <td><?= $pedido['nome_cliente'] ?></td>
+
+    <td><?= $pedido['nome_lanche'] ?></td>
+
+    <td><?= $pedido['qtd'] ?></td>
+
+    <td>R$ <?= number_format($pedido['preco_lanche'], 2, ',', '.') ?></td>
+
+    <td>
+    <?= date('d/m/Y', strtotime($pedido['data_retirada'])) ?>
+</td>
+
+    <td class="<?= $pedido['status'] ?>">
+        <?= $pedido['status'] ?>
+    </td>
+
+    <td>
+
+<?php if($pedido['status'] == 'pendente'){ ?>
+
+    <form action="aprovar_pedido.php" method="POST">
+
+        <input
+            type="hidden"
+            name="id_pedido"
+            value="<?= $pedido['id'] ?>"
+        >
+
+        <button type="submit">
+            Confirmar Pagamento
+        </button>
+
+    </form>
+
+<?php } ?>
+
+<?php if($pedido['status'] == 'pago'){ ?>
+
+    <form action="entregar_pedido.php" method="POST">
+
+        <input
+            type="hidden"
+            name="id_pedido"
+            value="<?= $pedido['id'] ?>"
+        >
+
+        <button type="submit">
+            Marcar como Entregue
+        </button>
+
+    </form>
+
+<?php } ?>
+
+<?php if($pedido['status'] == 'entregue'){ ?>
+
+    ✅ Entregue
+
+<?php } ?>
+
+</td>
+
+</tr>
+
+<?php } ?>
+
+</table>
+
+</body>
+</html>
