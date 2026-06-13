@@ -1,6 +1,8 @@
 <?php
 include("config.php");
 
+$erro = "";
+
 if($_SERVER["REQUEST_METHOD"] == "POST"){
 
     $nome = $_POST["nome"];
@@ -11,29 +13,49 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
     $senha = password_hash($_POST["senha"], PASSWORD_DEFAULT);
 
-$stmt = $conexao->prepare("
-    INSERT INTO cliente(nome,email,senha,turma,turno,cargo)
-    VALUES(?,?,?,?,?,?)
-");
+    // Verifica se o email já existe
+    $verifica = $conexao->prepare(
+        "SELECT id FROM cliente WHERE email = ?"
+    );
 
-$stmt->bind_param(
-    "ssssss",
-    $nome,
-    $email,
-    $senha,
-    $turma,
-    $turno,
-    $cargo
-);
+    $verifica->bind_param("s", $email);
+    $verifica->execute();
 
-    if($stmt->execute()){
-        header("Location: login.php");
-        exit;
+    $resultado = $verifica->get_result();
+
+    if($resultado->num_rows > 0){
+
+        $erro = "Este e-mail já está cadastrado.";
+
+    } else {
+
+        $stmt = $conexao->prepare("
+            INSERT INTO cliente(nome,email,senha,turma,turno,cargo)
+            VALUES(?,?,?,?,?,?)
+        ");
+
+        $stmt->bind_param(
+            "ssssss",
+            $nome,
+            $email,
+            $senha,
+            $turma,
+            $turno,
+            $cargo
+        );
+
+        if($stmt->execute()){
+
+            header("Location: login.php");
+            exit;
+
+        } else {
+
+            $erro = "Erro ao cadastrar usuário.";
+
+        }
     }
-
-    echo "Erro ao cadastrar.";
 }
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -64,6 +86,17 @@ $stmt->bind_param(
     <div class="container-cadastro">
 
         <h1 class="h1-sigin"> Cadastro </h1>
+
+        <?php if(!empty($erro)): ?>
+    <p style="
+        color:red;
+        text-align:center;
+        margin-bottom:15px;
+        font-weight:bold;
+    ">
+        <?= $erro ?>
+    </p>
+<?php endif; ?>
 
         <form method="POST">
 
