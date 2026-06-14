@@ -31,42 +31,71 @@ while ($data->format('N') >= 6) { // 6 = sábado, 7 = domingo
 <html>
 <head>
     <title><?php echo $lanche['nome']; ?></title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <h1><?php echo $lanche['nome']; ?></h1>
+<div class="container">
 
-    <p>Valor: R$ <?php echo $lanche['preco']; ?></p>
+    <div class="dados">
 
-    <p>Quantidade disponível: <?php echo $lanche['qtd']; ?></p>
+        <div class="info-card">
+            <p>Valor: R$ <?php echo $lanche['preco']; ?></p>
+        </div>
 
-    <a href="index.php">Voltar para a lista de lanches</a><br>
+        <div class="info-card">
+            <p>Quantidade disponível: <?php echo $lanche['qtd']; ?></p>
+        </div>
+
+        <div class="info-card">
+            <p>Retirada: <?= $data->format('d/m/Y') ?></p>
+        </div>
+
+    </div>
+
+    <button type="button" onclick="window.location.href='index.php'">
+     Voltar para a lista de lanches
+</button>
 
     <form action="comprar.php" method="POST">
-    <input type="hidden" name="id_lanche" value="<?= $lanche['id'] ?>">
 
-    <br><br>
-     <p>Quantidade:</p>
+        <input type="hidden" name="id_lanche" value="<?= $lanche['id'] ?>">
 
-    <input type="radio" id="qtd1" name="qtd" value="1" checked>
-    <label for="qtd1">1</label>
+        <p class="titulo-qtd">Quantidade:</p>
 
-    <input type="radio" id="qtd2" name="qtd" value="2">
-    <label for="qtd2">2</label>
+        <div class="radio-group">
 
-    <input type="radio" id="qtd3" name="qtd" value="3">
-    <label for="qtd3">3</label>
+            <label>
+                <input type="radio" id="qtd1" name="qtd" value="1" checked>
+                1
+            </label>
 
-    <input type="radio" id="qtd4" name="qtd" value="4">
-    <label for="qtd4">4</label>
+            <label>
+                <input type="radio" id="qtd2" name="qtd" value="2">
+                2
+            </label>
 
-    <input type="radio" id="qtd5" name="qtd" value="5">
-    <label for="qtd5">5</label>
+            <label>
+                <input type="radio" id="qtd3" name="qtd" value="3">
+                3
+            </label>
 
-    <br><br>
-    <button type="submit">Comprar</button>
-</form>
+            <label>
+                <input type="radio" id="qtd4" name="qtd" value="4">
+                4
+            </label>
 
-   <p>Retirada: <?= $data->format('d/m/Y') ?></p>
+            <label>
+                <input type="radio" id="qtd5" name="qtd" value="5">
+                5
+            </label>
+
+        </div>
+
+        <button type="submit">Comprar</button>
+
+    </form>
+
+</div>
+
 </body>
-</html>

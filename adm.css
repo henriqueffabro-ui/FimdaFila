@@ -1,0 +1,162 @@
+.admin-page{
+    min-height:100vh;
+    padding:40px;
+    display:block;
+}
+
+.admin-container{
+    width:80%;
+    max-width:1200px;
+    margin:60px auto;
+    background:white;
+    padding:30px;
+    border-radius:25px;
+    box-shadow:0 10px 30px rgba(0,0,0,.15);
+}
+
+.topo-admin{
+    position:relative;
+    min-height:80px;
+    margin-bottom:40px;
+}
+
+.topo-admin h1{
+    text-align:center;
+    color:#7c0476;
+    font-size:48px;
+    font-weight:800;
+    letter-spacing:1px;
+    text-shadow:0 3px 10px rgba(124,4,118,.15);
+}
+
+.btn-voltar{
+    position:fixed;
+    top:20px;
+    left:20px;
+    background:#7c0476;
+    color:white;
+    text-decoration:none;
+    font-weight:bold;
+    padding:14px 24px;
+    border-radius:12px;
+    transition: 0.2;
+}
+.btn-voltar:hover{
+    background: #26ceb7;
+}
+
+.table-container{
+    width:100%;
+    overflow-x:auto;
+}
+
+table{
+    width:100%;
+    table-layout: fixed;
+    border-collapse:collapse;
+    border-radius:15px;
+    overflow:hidden;
+}
+
+th{
+    padding:15px 10px;
+    background:transparent;
+}
+
+.th-badge{
+    display:inline-block;
+    background:#7c0476;
+    color:white;
+    padding:10px 20px;
+    border-radius:999px;
+    font-weight:bold;
+    transition: 0.3s;
+}
+.th-badge:hover{
+    background: #26ceb7;
+    cursor:pointer;
+}
+
+.tabela-admin{
+    width:100%;
+    border-collapse:separate;
+    border-spacing:0;
+    margin-top:20px;
+}
+
+.tabela-admin thead tr{
+    background:#7c0476;
+}
+
+.tabela-admin th{
+    color:white;
+    padding:18px;
+    text-align:center;
+    font-size:16px;
+}
+
+.tabela-admin th:first-child{
+    border-top-left-radius:15px;
+}
+
+.tabela-admin th:last-child{
+    border-top-right-radius:15px;
+}
+
+.tabela-admin td{
+    padding:18px;
+    text-align:center;
+    background:white;
+    border-bottom:1px solid #eee;
+    vertical-align: top;
+    padding-top:25px;
+}
+
+.tabela-admin button{
+    width:220px;
+}
+
+td{
+    padding:15px;
+    text-align:center;
+}
+
+td span{
+    display:inline-block;
+    background:#f5f5f5;
+    padding:8px 12px;
+    border-radius:12px;
+}
+
+.pendente{
+    color:#ff9800;
+    font-weight:bold;
+}
+
+.pago{
+    color:#26ceb7;
+    font-weight:bold;
+}
+
+.entregue{
+    color:#4caf50;
+    font-weight:bold;
+}
+
+.entregue-texto{
+    color:#4caf50;
+    font-weight:bold;
+}
+.tabela-admin tbody tr{
+    transition:0.3s;
+}
+
+.tabela-admin tbody tr:hover{
+    background:#f0f9f8;
+}
+button {
+    width: 220px;      
+    height:50px;     
+    border-radius: 10px;
+    
+}
