@@ -177,3 +177,68 @@
     margin-bottom: 10px;
 
 }
+
+/* Responsividade */
+
+@media (max-width: 768px){
+
+    .body-login{
+
+        margin: 0;
+
+        min-height: 100vh;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        padding: 20px;
+    }
+
+    .container-login{
+
+        position: static;
+
+        width: 100%;
+        max-width: 400px;
+
+        min-width: auto;
+
+        height: auto;
+
+        padding: 30px 20px;
+
+        left: auto;
+        top: auto;
+    }
+
+    .h1-login{
+
+        font-size: 70px;
+
+        margin-bottom: 25px;
+    }
+
+    .input-email,
+    .input-senha{
+
+        width: 100%;
+
+        max-width: 280px;
+    }
+
+    .btn-login,
+    .btn-link-home{
+
+        width: 100%;
+
+        max-width: 220px;
+
+        height: 40px;
+    }
+
+    .label{
+
+        font-size: 14px;
+    }
+}

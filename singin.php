@@ -119,13 +119,26 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             <input type="text" name="turma" placeholder="digite sua turma" class="input-email">
             <br>
 
-            <label for="email" class="label"> Turno: </label>
-            <input type="text" name="turno" placeholder="digite seu turno" class="input-email" required>
-            <br>
+            <label for="turno" class="label"> Turno: </label>
 
-             <label for="email" class="label"> Cargo: </label>
-            <input type="text" name="cargo" placeholder="digite seu cargo" class="input-email" required>
-            <br>
+<select name="turno" class="input-email" required>
+    <option value="">Selecionar</option>
+    <option value="Manhã">Manhã</option>
+    <option value="Tarde">Tarde</option>
+    <option value="Noite">Noite</option>
+</select>
+
+<br>
+
+<label for="cargo" class="label"> Cargo: </label>
+
+<select name="cargo" class="input-email" required>
+    <option value="">Selecionar</option>
+    <option value="Estudante">Estudante</option>
+    <option value="Funcionário">Funcionário</option>
+</select>
+
+<br>
 
             <!--butaun :3c-->
             <button type="submit" class="btn-cadastro"> cadastrar-se </button>

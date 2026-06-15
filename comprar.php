@@ -60,6 +60,29 @@ while ($dataRetirada->format('N') >= 6) {
 $dataRetiradaBanco = $dataRetirada->format('Y-m-d');
 $dataRetiradaExibir = $dataRetirada->format('d/m/Y');
 
+//codigo aleatorio para o pedido
+$caracteres = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+
+do {
+
+    $codigo = '';
+
+    for($i = 0; $i < 3; $i++){
+        $codigo .= $caracteres[random_int(0, strlen($caracteres) - 1)];
+    }
+
+    $sql_verifica = "
+        SELECT id
+        FROM pedido
+        WHERE codigo = '$codigo'
+    ";
+
+    $resultado = $conexao->query($sql_verifica);
+
+} while($resultado->num_rows > 0);
+
+
+
 // Cria pedido
 $sql_pedido = "INSERT INTO pedido (
     nome_cliente,
@@ -72,7 +95,8 @@ $sql_pedido = "INSERT INTO pedido (
     cargo,
     qtd,
     status,
-    data_retirada
+    data_retirada,
+     codigo
 ) VALUES (
     '{$cliente['nome']}',
     {$cliente['id']},
@@ -84,7 +108,8 @@ $sql_pedido = "INSERT INTO pedido (
     '{$cliente['cargo']}',
     $qtd,
     'pendente',
-    '$dataRetiradaBanco'
+    '$dataRetiradaBanco',
+    '$codigo'
 )";
 
 if ($conexao->query($sql_pedido)) {
@@ -109,6 +134,8 @@ if ($conexao->query($sql_pedido)) {
         <img src='imgs/qrcode_www.youtube.com.png' alt='QR Code PIX' width='200'>
 
         <p>Chave PIX: 666</p>
+
+        <p><strong>Código de retirada:</strong> {$codigo}</p>
 
         <p>
             Após realizar o pagamento, aguarde a confirmação do administrador.

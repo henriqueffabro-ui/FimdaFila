@@ -12,6 +12,10 @@ if(!isset($_SESSION["id"])){
 <html>
 <head>
     <title>Home</title>
+    <link rel="stylesheet" href="index.css">
+    <script src="index.js"></script>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
 
@@ -106,6 +110,8 @@ if(isset($_SESSION['id'])){
                 <th>Quantidade</th>
                 <th>Data de Retirada</th>
                 <th>Status</th>
+                <th>Código</th>
+                <th>Ação</th>
             </tr>
         ";
 
@@ -142,6 +148,17 @@ if(isset($_SESSION['id'])){
                 <td style='color:$corStatus;font-weight:bold'>
                     {$pedido['status']}
                 </td>
+
+
+                <td>{$pedido['codigo']}</td>
+
+
+                <td>
+                    <button onclick=\"mostrarCodigo('{$pedido['codigo']}')\">
+                        Ampliar
+                    </button>
+                </td>
+
             </tr>
             ";
         }
@@ -156,5 +173,13 @@ if(isset($_SESSION['id'])){
 
 }
 ?>
+
+<div id="modalCodigo" class="modal">
+    <div class="modal-conteudo">
+        <span class="fechar" onclick="fecharCodigo()">&times;</span>
+
+        <div id="codigoGrande"></div>
+    </div>
+</div>
 </body>
 </html>

@@ -20,6 +20,9 @@
 
 .container-cadastro {
 
+    /* coloquei esse margin top porque o container tava muito pra baixo - Henrique */
+    margin-top: -50px;
+
     text-align: center;
     display: flex;
     flex-direction: column;
@@ -27,7 +30,13 @@
     justify-content: center;
     background-color: #f0f0f0;
     min-width: 320px;
-    height:550px;
+
+
+    min-height: 800px;
+    padding: 30px 20px;
+
+
+
     transition: 1s;
     border-radius: 45px;
     border: 2px solid #9308d4c9;
@@ -175,4 +184,70 @@
 
     color: rgb(120, 120, 120);
 
+}
+
+/* Responsividade */
+
+@media (max-width: 768px){
+
+    .body-cadastro{
+
+        margin: 0;
+
+        min-height: 100vh;
+
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+
+        padding: 20px;
+    }
+
+    .container-cadastro{
+
+        position: static;
+
+        width: 100%;
+        max-width: 420px;
+
+        min-width: auto;
+
+        height: auto;
+
+        padding: 25px 20px;
+
+        left: auto;
+        top: auto;
+
+        margin: 20px 0;
+    }
+
+    .h1-sigin{
+
+        font-size: 70px;
+
+        margin-bottom: 15px;
+    }
+
+    .input-email,
+    .input-senha,
+    .input-usuario{
+
+        width: 100%;
+
+        max-width: 280px;
+    }
+
+    .btn-cadastro,
+    .btn-link-home{
+
+        max-width: 250px;
+
+        height: 40px;
+    }
+
+    .label{
+
+        font-size: 14px;
+    }
 }

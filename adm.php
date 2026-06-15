@@ -46,6 +46,12 @@ $result = $conexao->query($sql);
             color:blue;
             font-weight:bold;
         }
+
+        table{
+    border-collapse: collapse;
+    width: 100%;
+    background-color: white;
+}
     </style>
 
     <link rel="stylesheet" href="adm.css">
@@ -69,7 +75,9 @@ $result = $conexao->query($sql);
     <th>Valor</th>
     <th>Data de Retirada</th>
     <th>Status</th>
+    <th>Código</th>
     <th>Ação</th>
+    
 </tr>
 
 <?php while($pedido = $result->fetch_assoc()) { ?>
@@ -93,6 +101,8 @@ $result = $conexao->query($sql);
     <td class="<?= $pedido['status'] ?>">
         <?= $pedido['status'] ?>
     </td>
+
+    <td><?= $pedido['codigo'] ?></td>
 
     <td>
 

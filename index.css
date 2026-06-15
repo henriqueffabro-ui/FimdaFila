@@ -1,0 +1,135 @@
+.modal{
+    display:none;
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.7);
+}
+
+.modal-conteudo{
+    background:white;
+    width:600px;
+    
+    margin:100px auto;
+    padding:20px;
+    text-align:center;
+    border-radius:10px;
+}
+
+#codigoGrande{
+    font-size:120px;
+    font-weight:bold;
+    letter-spacing:10px;
+}
+
+.fechar{
+    float:right;
+    cursor:pointer;
+    font-size:30px;
+}
+
+
+
+/*Tabela e outras poucas coisas */
+*{
+    box-sizing: border-box;
+}
+
+body{
+    margin: 0;
+    padding: 15px;
+    font-family: Arial, sans-serif;
+}
+
+img{
+    max-width: 100%;
+}
+
+.lanche{
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+table{
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+}
+
+th,
+td{
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: center;
+}
+
+button{
+    padding: 8px 12px;
+    cursor: pointer;
+}
+
+.modal{
+    display:none;
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.7);
+}
+
+.modal-conteudo{
+    background:white;
+    width:90%;
+    max-width:400px;
+    margin:100px auto;
+    padding:20px;
+    border-radius:10px;
+    text-align:center;
+}
+
+#codigoGrande{
+    font-size:80px;
+    font-weight:bold;
+}
+
+/* Responsividade */
+
+@media (max-width: 768px){
+
+    body{
+        padding: 10px;
+    }
+
+    h1{
+        font-size: 1.8rem;
+    }
+
+    h2{
+        font-size: 1.4rem;
+    }
+
+    table{
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+
+    th,
+    td{
+        padding: 8px;
+        font-size: 14px;
+    }
+
+    button{
+        width: 100%;
+    }
+
+    #codigoGrande{
+        font-size: 60px;
+    }
+}
