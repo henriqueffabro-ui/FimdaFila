@@ -48,6 +48,9 @@ $result = $conexao->query($sql);
         }
     </style>
 
+    <link rel="stylesheet" href="adm.css">
+
+
 </head>
 <body>
 

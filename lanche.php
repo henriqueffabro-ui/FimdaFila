@@ -39,6 +39,8 @@ while ($data->format('N') >= 6) { // 6 = sábado, 7 = domingo
 
     <div class="dados">
 
+     <h1><?php echo $lanche['nome']; ?></h1>
+
         <div class="info-card">
             <p>Valor: R$ <?php echo $lanche['preco']; ?></p>
         </div>
