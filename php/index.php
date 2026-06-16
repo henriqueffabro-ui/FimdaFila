@@ -13,7 +13,7 @@ if(!isset($_SESSION["id"])){
 <head>
     <title>Home</title>
     <link rel="stylesheet" href="../css/index.css">
-    <script src="js/index.js"></script>
+    <script src="../js/index.js"></script>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
