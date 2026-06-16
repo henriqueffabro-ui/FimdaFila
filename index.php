@@ -23,6 +23,7 @@ if(!isset($_SESSION["id"])){
 
     <a href="adm.php">Painel Administrativo</a><br>
     <a href="adm_lanches.php">Gerenciar Lanches</a><br>
+    <a href="cadastroLanche.php">Cadastrar Lanche</a><br>
 
 <?php } ?>
 

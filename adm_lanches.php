@@ -42,7 +42,15 @@ if(isset($_GET["excluir"])){
 
     $id = $_GET["excluir"];
 
-    mysqli_query($conexao, "DELETE FROM lanches WHERE id='$id'");
+    mysqli_query(
+        $conexao,
+        "DELETE FROM pedido WHERE id_lanche='$id'"
+    );
+
+    mysqli_query(
+        $conexao,
+        "DELETE FROM lanches WHERE id='$id'"
+    );
 }
 
 /* BUSCAR LANCHE PARA EDIÇÃO */
@@ -134,11 +142,7 @@ if(isset($_GET["editar"])){
     <input type="number"
            name="qtd" required>
 
-    <button class="btn-salvar"
-            type="submit"
-            name="cadastrar">
-        Cadastrar
-    </button>
+  
 
 </form>
 
@@ -203,55 +207,6 @@ while($lanche = mysqli_fetch_assoc($resultado)){
 
 </div>
 
-<?php
-
-if($_SERVER["REQUEST_METHOD"] == "POST"){
-
-    $nome = $_POST["nome"];
-    $preco = $_POST["preco"];
-    $qtd = $_POST["qtd"];
-
-    $stmt = $conexao->prepare("
-        INSERT INTO lanches(nome, preco, qtd)
-        VALUES(?, ?, ?)
-    ");
-
-    $stmt->bind_param(
-        "sdi",
-        $nome,
-        $preco,
-        $qtd
-    );
-
-    if($stmt->execute()){
-        echo "Lanche cadastrado com sucesso!";
-    } else {
-        echo "Erro: " . $stmt->error;
-    }
-}
-?>
-
-<h1>Cadastrar Lanche</h1>
-
-<form method="POST">
-
-    <label>Nome do Lanche</label><br>
-    <input type="text" name="nome" required>
-    <br><br>
-
-    <label>Preço</label><br>
-    <input type="number" step="0.01" name="preco" required>
-    <br><br>
-
-    <label>Quantidade em Estoque</label><br>
-    <input type="number" name="qtd" required>
-    <br><br>
-
-    <button type="submit">
-        Cadastrar
-    </button>
-
-</form>
 
 
 </body>
