@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 14/06/2026 às 00:40
+-- Tempo de geração: 17/06/2026 às 00:59
 -- Versão do servidor: 10.4.32-MariaDB
 -- Versão do PHP: 8.2.12
 
@@ -44,7 +44,8 @@ CREATE TABLE `cliente` (
 INSERT INTO `cliente` (`id`, `nome`, `email`, `turma`, `turno`, `cargo`, `senha`) VALUES
 (1, '', '', '', '', '', ''),
 (9, 'Henrique F', 'henrique.fabro@escola.pr.gov.br', '2M', 'Tarde', 'Estudante', '$2y$10$RQJNrvLtWWhotQRykGt2bOwPLTJEOTJdbtVhStol2wv8joOK6tAZ6'),
-(12, 'Admin', 'cmine1964@gmail.com', '', 'Todos', 'Admin', '$2y$10$XXQAJ528gtYOdz/95FoBVun7Iuh.nbjKQvTtIE7Ydj2GAxG0R8A1S');
+(12, 'Admin', 'cmine1964@gmail.com', '', 'Todos', 'Admin', '$2y$10$XXQAJ528gtYOdz/95FoBVun7Iuh.nbjKQvTtIE7Ydj2GAxG0R8A1S'),
+(13, 'miguel', 'miguel@gmail.com', '2M', 'Tarde', 'Estudante', '$2y$10$Pef4/JRGZQ32gw8GVxfehOzsM5RF4/fxv9JEUU5vZZK8Phd4mVQ62');
 
 -- --------------------------------------------------------
 
@@ -91,27 +92,33 @@ CREATE TABLE `pedido` (
   `cargo` varchar(30) NOT NULL,
   `qtd` int(11) NOT NULL,
   `status` varchar(20) DEFAULT 'pendente',
-  `data_retirada` date DEFAULT NULL
+  `data_retirada` date DEFAULT NULL,
+  `codigo` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Despejando dados para a tabela `pedido`
 --
 
-INSERT INTO `pedido` (`id`, `nome_cliente`, `id_cliente`, `nome_lanche`, `id_lanche`, `preco_lanche`, `turma`, `turno`, `cargo`, `qtd`, `status`, `data_retirada`) VALUES
-(1, 'Henrique F', 9, 'Mini Pizza de Chocolate Preto', 3, 8, '2M', 'Tarde', 'Estudante', 1, 'pendente', NULL),
-(2, 'Henrique F', 9, 'Mini Pizza de Chocolate Preto', 3, 8, '2M', 'Tarde', 'Estudante', 1, 'pendente', NULL),
-(3, 'Henrique F', 9, 'Mini Pizza de Calabresa', 1, 8, '2M', 'Tarde', 'Estudante', 2, 'pendente', NULL),
-(4, 'Henrique F', 9, 'Mini Pizza de Calabresa', 1, 16, '2M', 'Tarde', 'Estudante', 2, 'pago', NULL),
-(5, 'Henrique F', 9, 'Mini Pizza de Chocolate Preto', 3, 8, '2M', 'Tarde', 'Estudante', 1, 'pago', NULL),
-(6, 'Henrique F', 9, 'Mini Pizza de Frango Catupiry', 4, 16, '2M', 'Tarde', 'Estudante', 2, 'pago', NULL),
-(7, 'Henrique F', 9, 'Mini Pizza de Frango Catupiry', 4, 16, '2M', 'Tarde', 'Estudante', 2, 'entregue', NULL),
-(8, 'Henrique F', 9, 'Hamburguer de Forno', 5, 8, '2M', 'Tarde', 'Estudante', 1, 'pendente', '2026-06-15'),
-(9, 'Henrique F', 9, 'Mini Pizza de Calabresa', 1, 8, '2M', 'Tarde', 'Estudante', 1, 'pendente', '2026-06-15'),
-(10, 'Henrique F', 9, 'Mini Pizza de Calabresa', 1, 8, '2M', 'Tarde', 'Estudante', 1, 'pendente', '2026-06-15'),
-(11, 'Admin', 12, 'Salgado Assado de Frango', 7, 8, '', 'Todos', 'Admin', 1, 'pendente', '2026-06-15'),
-(12, 'Admin', 12, 'Salgado Assado de Frango', 7, 8, '', 'Todos', 'Admin', 1, 'pago', '2026-06-15'),
-(13, 'Admin', 12, 'Salgado Assado de Frango', 7, 8, '', 'Todos', 'Admin', 1, 'entregue', '2026-06-15');
+INSERT INTO `pedido` (`id`, `nome_cliente`, `id_cliente`, `nome_lanche`, `id_lanche`, `preco_lanche`, `turma`, `turno`, `cargo`, `qtd`, `status`, `data_retirada`, `codigo`) VALUES
+(1, 'Henrique F', 9, 'Mini Pizza de Chocolate Preto', 3, 8, '2M', 'Tarde', 'Estudante', 1, 'pendente', NULL, ''),
+(2, 'Henrique F', 9, 'Mini Pizza de Chocolate Preto', 3, 8, '2M', 'Tarde', 'Estudante', 1, 'pendente', NULL, ''),
+(3, 'Henrique F', 9, 'Mini Pizza de Calabresa', 1, 8, '2M', 'Tarde', 'Estudante', 2, 'pendente', NULL, ''),
+(4, 'Henrique F', 9, 'Mini Pizza de Calabresa', 1, 16, '2M', 'Tarde', 'Estudante', 2, 'pago', NULL, ''),
+(5, 'Henrique F', 9, 'Mini Pizza de Chocolate Preto', 3, 8, '2M', 'Tarde', 'Estudante', 1, 'pago', NULL, ''),
+(6, 'Henrique F', 9, 'Mini Pizza de Frango Catupiry', 4, 16, '2M', 'Tarde', 'Estudante', 2, 'pago', NULL, ''),
+(7, 'Henrique F', 9, 'Mini Pizza de Frango Catupiry', 4, 16, '2M', 'Tarde', 'Estudante', 2, 'entregue', NULL, ''),
+(8, 'Henrique F', 9, 'Hamburguer de Forno', 5, 8, '2M', 'Tarde', 'Estudante', 1, 'pendente', '2026-06-15', ''),
+(9, 'Henrique F', 9, 'Mini Pizza de Calabresa', 1, 8, '2M', 'Tarde', 'Estudante', 1, 'pendente', '2026-06-15', ''),
+(10, 'Henrique F', 9, 'Mini Pizza de Calabresa', 1, 8, '2M', 'Tarde', 'Estudante', 1, 'pendente', '2026-06-15', ''),
+(11, 'Admin', 12, 'Salgado Assado de Frango', 7, 8, '', 'Todos', 'Admin', 1, 'pendente', '2026-06-15', ''),
+(12, 'Admin', 12, 'Salgado Assado de Frango', 7, 8, '', 'Todos', 'Admin', 1, 'pago', '2026-06-15', ''),
+(13, 'Admin', 12, 'Salgado Assado de Frango', 7, 8, '', 'Todos', 'Admin', 1, 'entregue', '2026-06-15', ''),
+(14, 'Admin', 12, 'Salgado Assado de Frango', 8, 8, '', 'Todos', 'Admin', 1, 'pendente', '2026-06-15', ''),
+(15, 'Admin', 12, 'Salgado Assado de Frango', 7, 8, '', 'Todos', 'Admin', 1, 'pendente', '2026-06-15', ''),
+(16, 'Admin', 12, 'Mini Pizza de Chocolate Preto', 3, 8, '', 'Todos', 'Admin', 1, 'pendente', '2026-06-16', 'BDH'),
+(17, 'Admin', 12, 'Hamburguer de Forno', 5, 8, '', 'Todos', 'Admin', 1, 'pendente', '2026-06-16', 'zb4'),
+(18, 'Admin', 12, 'Salgado Assado de Frango', 8, 8, '', 'Todos', 'Admin', 1, 'pendente', '2026-06-16', '5WB');
 
 --
 -- Índices para tabelas despejadas
@@ -147,7 +154,7 @@ ALTER TABLE `pedido`
 -- AUTO_INCREMENT de tabela `cliente`
 --
 ALTER TABLE `cliente`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT de tabela `lanches`
@@ -159,7 +166,7 @@ ALTER TABLE `lanches`
 -- AUTO_INCREMENT de tabela `pedido`
 --
 ALTER TABLE `pedido`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- Restrições para tabelas despejadas
