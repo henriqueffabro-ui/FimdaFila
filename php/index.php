@@ -12,8 +12,8 @@ if(!isset($_SESSION["id"])){
 <html>
 <head>
     <title>Home</title>
-    <link rel="stylesheet" href="index.css">
-    <script src="index.js"></script>
+    <link rel="stylesheet" href="../css/index.css">
+    <script src="../js/index.js"></script>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
@@ -23,6 +23,7 @@ if(!isset($_SESSION["id"])){
 
     <a href="adm.php">Painel Administrativo</a><br>
     <a href="adm_lanches.php">Gerenciar Lanches</a><br>
+    <a href="cadastroLanche.php">Cadastrar Lanche</a><br>
 
 <?php } ?>
 

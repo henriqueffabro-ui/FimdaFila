@@ -34,6 +34,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     <title>Cadastrar Lanche</title>
 </head>
 <body>
+<button onclick="window.location.href='index.php'">
+    Home
+</button>
 
 <h1>Cadastrar Lanche</h1>
 
@@ -56,6 +59,28 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     </button>
 
 </form>
+
+<h2>Lanches Cadastrados</h2>
+
+<?php
+
+$sql = "SELECT * FROM lanches ORDER BY nome";
+$resultado = mysqli_query($conexao, $sql);
+
+foreach($resultado as $lanche){
+?>
+
+    <div style="margin-bottom:10px;">
+        <strong><?= $lanche["nome"] ?></strong><br>
+        Preço: R$ <?= number_format($lanche["preco"], 2, ",", ".") ?><br>
+        Estoque: <?= $lanche["qtd"] ?>
+    </div>
+
+    <hr>
+
+<?php
+}
+?>
 
 </body>
 </html>

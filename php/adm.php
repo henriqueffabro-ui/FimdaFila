@@ -54,7 +54,7 @@ $result = $conexao->query($sql);
 }
     </style>
 
-    <link rel="stylesheet" href="adm.css">
+    <link rel="stylesheet" href="../css/adm.css">
 
 
 </head>

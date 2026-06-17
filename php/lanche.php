@@ -31,7 +31,7 @@ while ($data->format('N') >= 6) { // 6 = sábado, 7 = domingo
 <html>
 <head>
     <title><?php echo $lanche['nome']; ?></title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
 
@@ -94,7 +94,15 @@ while ($data->format('N') >= 6) { // 6 = sábado, 7 = domingo
 
         </div>
 
+        <?php if($lanche['qtd'] > 0){ ?>
+
         <button type="submit">Comprar</button>
+
+        <?php } else { ?>
+
+        <p>Este lanche não está disponível no momento.</p>
+
+        <?php } ?>
 
     </form>
 
