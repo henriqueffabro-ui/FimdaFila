@@ -142,3 +142,79 @@ button:hover{
     background:#26ceb7;
     transform:translateY(-2px);
 }
+
+/* =========================
+   RESPONSIVO
+========================= */
+@media (max-width: 768px){
+
+    h1{
+        font-size: 28px;
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    body{
+        padding: 10px;
+    }
+
+    /* Botões superiores */
+    body > button{
+        width: 100%;
+        margin-bottom: 10px;
+        height: 50px;
+        font-size: 15px;
+    }
+
+    /* Tabela com rolagem horizontal */
+    table{
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+        font-size: 14px;
+    }
+
+    th,
+    td{
+        padding: 8px;
+    }
+
+    /* Botões dentro da tabela */
+    td button{
+        width: 150px;
+        height: auto;
+        padding: 10px;
+        font-size: 13px;
+    }
+
+    form{
+        margin: 0;
+    }
+}
+
+/* Celulares menores */
+@media (max-width: 480px){
+
+    h1{
+        font-size: 22px;
+    }
+
+    table{
+        font-size: 12px;
+    }
+
+    th,
+    td{
+        padding: 6px;
+    }
+
+    td button{
+        width: 130px;
+        font-size: 12px;
+    }
+}
+
+.table-container{
+    width: 100%;
+    overflow-x: auto;
+}

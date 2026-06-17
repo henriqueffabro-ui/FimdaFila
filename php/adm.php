@@ -55,7 +55,7 @@ $result = $conexao->query($sql);
     </style>
 
     <link rel="stylesheet" href="../css/adm.css">
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 </head>
 <body>
@@ -64,6 +64,8 @@ $result = $conexao->query($sql);
 <button onclick="location.href='adm_lanches.php'">Gerenciar Lanches</button>
 
 <h1>Painel Administrativo</h1>
+
+<div class="table-container">
 
 <table>
 
@@ -155,6 +157,7 @@ $result = $conexao->query($sql);
 <?php } ?>
 
 </table>
+</div>
 
 </body>
 </html>

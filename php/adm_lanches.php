@@ -73,7 +73,8 @@ if(isset($_GET["editar"])){
 <meta charset="UTF-8">
 <title>Gerenciar Lanches</title>
 
-
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="../css/adm_lanches.css">
 
 </head>
 <body>
@@ -127,7 +128,7 @@ if(isset($_GET["editar"])){
 
 <?php } else { ?>
 
-<h3>Cadastrar Lanche</h3>
+<h3>Atualizar Lanche</h3>
 
 <form method="POST">
 
@@ -154,6 +155,7 @@ if(isset($_GET["editar"])){
 
 <h3>Lanches Cadastrados</h3>
 
+<div class="table-container">
 <table>
 
 <tr>
@@ -202,6 +204,7 @@ while($lanche = mysqli_fetch_assoc($resultado)){
 <?php } ?>
 
 </table>
+</div>
 
 </div>
 

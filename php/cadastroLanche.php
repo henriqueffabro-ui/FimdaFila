@@ -32,6 +32,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 <head>
     <meta charset="UTF-8">
     <title>Cadastrar Lanche</title>
+
+    
+    <link rel="stylesheet" href="../css/cadastroLanche.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
 <button onclick="window.location.href='index.php'">
@@ -70,7 +74,7 @@ $resultado = mysqli_query($conexao, $sql);
 foreach($resultado as $lanche){
 ?>
 
-    <div style="margin-bottom:10px;">
+    <div class="lanche">
         <strong><?= $lanche["nome"] ?></strong><br>
         Preço: R$ <?= number_format($lanche["preco"], 2, ",", ".") ?><br>
         Estoque: <?= $lanche["qtd"] ?>
