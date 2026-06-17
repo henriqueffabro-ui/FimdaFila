@@ -116,12 +116,12 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             <br>
 
             <label for="email" class="label"> Turma: </label>
-            <input type="text" name="turma" placeholder="digite sua turma" class="input-email">
+            <input type="text" name="turma" placeholder="digite sua turma" class="input-turma">
             <br>
 
             <label for="turno" class="label"> Turno: </label>
 
-<select name="turno" class="input-email" required>
+<select name="turno" class="input-turno" required>
     <option value="">Selecionar</option>
     <option value="Manhã">Manhã</option>
     <option value="Tarde">Tarde</option>
@@ -132,7 +132,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
 <label for="cargo" class="label"> Cargo: </label>
 
-<select name="cargo" class="input-email" required>
+<select name="cargo" class="input-cargo" required>
     <option value="">Selecionar</option>
     <option value="Estudante">Estudante</option>
     <option value="Funcionário">Funcionário</option>
