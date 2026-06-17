@@ -88,22 +88,24 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         <h1 class="h1-sigin"> Cadastro </h1>
 
         <?php if(!empty($erro)): ?>
-    <p style="
-        color:red;
-        text-align:center;
-        margin-bottom:15px;
-        font-weight:bold;
-    ">
+        <p style="
+            color:red;
+            text-align:center;
+            margin-bottom:15px;
+            font-weight:bold;
+        ">
         <?= $erro ?>
-    </p>
-<?php endif; ?>
+        </p>
+        <?php endif; ?>
 
-        <form method="POST">
+        <form method="POST" class="form-cadastro">
 
             <!--input de usuario-->
-            <label for="usuario" class="label"> Usuario: </label>
-            <input type="text" name="nome" placeholder="nome de usuario" class="input-usuario" required>
-            <br>
+            <div class="teste-p-abel">
+                <label for="usuario" class="label"> Usuario: </label>
+                <input type="text" name="nome" placeholder="nome de usuario" class="input-usuario" required>
+                <br>
+            </div>
 
             <!--input de senha-->
             <label for="senha" class="label"> Senha: </label>
@@ -121,27 +123,27 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
             <label for="turno" class="label"> Turno: </label>
 
-<select name="turno" class="input-turno" required>
-    <option value="">Selecionar</option>
-    <option value="Manhã">Manhã</option>
-    <option value="Tarde">Tarde</option>
-    <option value="Noite">Noite</option>
-</select>
+            <select name="turno" class="input-turno" required>
+                <option value="">Selecionar</option>
+                <option value="Manhã">Manhã</option>
+                <option value="Tarde">Tarde</option>
+                <option value="Noite">Noite</option>
+            </select>
 
-<br>
+            <br>
 
-<label for="cargo" class="label"> Cargo: </label>
+            <label for="cargo" class="label"> Cargo: </label>
 
-<select name="cargo" class="input-cargo" required>
-    <option value="">Selecionar</option>
-    <option value="Estudante">Estudante</option>
-    <option value="Funcionário">Funcionário</option>
-</select>
+            <select name="cargo" class="input-cargo" required>
+                <option value="">Selecionar</option>
+                <option value="Estudante">Estudante</option>
+                <option value="Funcionário">Funcionário</option>
+            </select>
 
-<br>
+            <br>
 
-            <!--butaun :3c-->
-            <button type="submit" class="btn-cadastro"> cadastrar-se </button>
+                <!--butaun :3c-->
+                <button type="submit" class="btn-cadastro"> cadastrar-se </button>
             
         </form>
 

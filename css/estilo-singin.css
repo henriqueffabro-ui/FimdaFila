@@ -5,7 +5,7 @@
     justify-content: flex;
     align-items: center;
 
-    background: linear-gradient(160deg, rgb(16, 0, 107), rgba(83, 0, 192, 0.801));
+    background: linear-gradient(160deg,rgba(32, 122, 150, 0.884), rgb(90, 1, 192));
     
     
     
@@ -32,7 +32,7 @@
     min-width: 320px;
 
 
-    min-height: 800px;
+    min-height: 600px;
     padding: 30px 20px;
 
 
@@ -60,6 +60,7 @@
     font-weight: 1000;
     font-family: kolker brush, cursive;
     letter-spacing: 4px;
+    margin-bottom: 20px;
     
 
 }
@@ -92,6 +93,7 @@
     transition: 0.5s;
     margin: 8px;
     margin-bottom: 10px;
+    margin-top: 40px;
 
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 
@@ -129,7 +131,7 @@
 
 }
 
-.input-email, .input-senha, .input-usuario {
+.input-email, .input-senha, .input-usuario, .input-turma, .input-turno, .input-cargo {
 
     border-radius: 20px;
     border: 2px solid ;
@@ -153,16 +155,17 @@
 
 }
 
-.input-email:hover, .input-senha:hover, .input-usuario:hover {
+.input-email:hover, .input-senha:hover, .input-usuario:hover, .input-turma:hover, .input-turno:hover, .input-cargo:hover {
 
     transform: translateY(-4px);
     box-shadow: 0px 4px 10px rgba(201, 0, 184, 0.452);
 }
 
-.label, .input-email, .input-senha {
+.label,.input-email, .input-senha {
 
     display: flex;
-    flex-direction: column;
+    flex-direction:initial;
+    
 
 }
 
@@ -174,11 +177,13 @@
     margin-bottom: 10px;
 
 }
-.input-email:focus, .input-senha:focus, .input-usuario:focus {
+.input-email:focus, .input-senha:focus, .input-usuario:focus, .input-turma:focus, .input-turno:focus, .input-cargo:focus{
 
     background-color: rgb(190, 190, 190);
 
 }
+
+
 
 ::placeholder{
 
