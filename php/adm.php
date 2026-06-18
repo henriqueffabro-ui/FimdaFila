@@ -22,50 +22,36 @@ $result = $conexao->query($sql);
 
     <style>
 
-        table{
-            border-collapse: collapse;
-            width:100%;
-        }
-
-        td, th{
-            border:1px solid #ccc;
-            padding:10px;
-        }
-
-        .pendente{
-            color:orange;
-            font-weight:bold;
-        }
-
-        .pago{
-            color:green;
-            font-weight:bold;
-        }
-
-        .entregue{
-            color:blue;
-            font-weight:bold;
-        }
-
-        table{
-    border-collapse: collapse;
-    width: 100%;
-    background-color: white;
-}
+       
     </style>
 
     <link rel="stylesheet" href="../css/adm.css">
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 </head>
 <body>
 
-<button onclick="location.href='index.php'">Voltar</button>
-<button onclick="location.href='adm_lanches.php'">Gerenciar Lanches</button>
 
-<h1>Painel Administrativo</h1>
 
-<table>
+
+
+    <button class="btn-menu"
+            onclick="location.href='index.php'">
+        Home
+    </button>
+
+    <button class="btn-menu"
+            onclick="location.href='adm_lanches.php'">
+        Gerenciar Lanches
+    </button>
+
+    <h1>Painel Administrativo</h1>
+
+
+
+<div class="table-container">
+
+<table class="tabela-admin">
 
 <tr>
     <th>ID</th>
@@ -155,6 +141,8 @@ $result = $conexao->query($sql);
 <?php } ?>
 
 </table>
+</div>
 
+</div>
 </body>
 </html>

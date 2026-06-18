@@ -1,0 +1,114 @@
+/* =========================
+   RESPONSIVO
+========================= */
+
+@media (max-width: 768px){
+
+    header h2{
+        font-size: 24px;
+        text-align: center;
+        margin: 15px 10px;
+    }
+
+    /* Botões superiores */
+    body > button{
+        width: calc(100% - 20px);
+        margin: 5px 10px;
+        height: 50px;
+        display: block;
+    }
+
+    /* Container */
+    .container{
+        width: 95%;
+        margin: 15px auto;
+    }
+
+    /* Cards */
+    .card{
+        padding: 15px;
+        margin-bottom: 20px;
+    }
+
+    .card h3{
+        text-align: center;
+        font-size: 22px;
+    }
+
+    /* Formulário */
+    form{
+        width: 100%;
+    }
+
+    label{
+        display: block;
+        margin-top: 10px;
+    }
+
+    input{
+        width: 100%;
+        box-sizing: border-box;
+        font-size: 16px;
+    }
+
+    .btn-salvar{
+        width: 100%;
+        margin-top: 15px;
+    }
+
+    /* Tabela */
+    table{
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+        width: 100%;
+    }
+
+    th,
+    td{
+        padding: 8px;
+        font-size: 14px;
+    }
+
+    /* Botões de ação */
+    .btn-editar,
+    .btn-excluir{
+        display: inline-block;
+        margin: 2px;
+        padding: 8px 12px;
+        font-size: 13px;
+    }
+}
+
+/* Celulares pequenos */
+
+@media (max-width: 480px){
+
+    header h2{
+        font-size: 20px;
+    }
+
+    .card h3{
+        font-size: 18px;
+    }
+
+    th,
+    td{
+        font-size: 12px;
+        padding: 6px;
+    }
+
+    .btn-editar,
+    .btn-excluir{
+        display: block;
+        width: 100%;
+        text-align: center;
+        margin: 3px 0;
+        box-sizing: border-box;
+    }
+}
+
+.table-container{
+    width: 100%;
+    overflow-x: auto;
+}

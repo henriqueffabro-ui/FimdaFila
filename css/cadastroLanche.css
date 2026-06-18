@@ -1,0 +1,125 @@
+body{
+    margin:0;
+    min-height:100vh;
+    background:linear-gradient(135deg,#92078b,#5b5fc7,#26ceb7);
+    font-family:Arial, Helvetica, sans-serif;
+    padding:20px;
+    box-sizing:border-box;
+}
+
+button{
+    background:#7c0476;
+    color:white;
+    border:none;
+    padding:12px 20px;
+    border-radius:10px;
+    cursor:pointer;
+    font-weight:bold;
+    transition:.3s;
+}
+
+button:hover{
+    background:#26ceb7;
+}
+
+h1,
+h2{
+    text-align:center;
+    color:white;
+}
+
+form{
+    max-width:500px;
+    margin:30px auto;
+    background:white;
+    padding:30px;
+    border-radius:20px;
+    box-shadow:0 10px 25px rgba(0,0,0,.15);
+}
+
+label{
+    display:block;
+    margin-bottom:8px;
+    font-weight:bold;
+    color:#444;
+}
+
+input{
+    width:100%;
+    padding:12px;
+    border:1px solid #ccc;
+    border-radius:10px;
+    box-sizing:border-box;
+    font-size:16px;
+}
+
+form button{
+    width:100%;
+    margin-top:15px;
+    height:50px;
+}
+
+.lanche{
+    max-width:500px;
+    margin:15px auto;
+    background:white;
+    padding:15px;
+    border-radius:15px;
+    box-shadow:0 4px 10px rgba(0,0,0,.1);
+}
+
+hr{
+    display:none;
+}
+
+/* =====================
+   RESPONSIVO
+===================== */
+
+@media (max-width:768px){
+
+    body{
+        padding:10px;
+    }
+
+    h1{
+        font-size:28px;
+    }
+
+    h2{
+        font-size:24px;
+    }
+
+    form{
+        padding:20px;
+        margin-top:20px;
+    }
+
+    input{
+        font-size:16px;
+    }
+
+    button{
+        width:100%;
+        margin-bottom:10px;
+    }
+}
+
+@media (max-width:480px){
+
+    h1{
+        font-size:24px;
+    }
+
+    h2{
+        font-size:20px;
+    }
+
+    form{
+        padding:15px;
+    }
+
+    input{
+        padding:10px;
+    }
+}

@@ -3,16 +3,16 @@ body{
     min-height:100vh;
     background: linear-gradient(135deg,#92078b,#5b5fc7,#26ceb7);
     background-attachment: fixed;
+    font-family:Arial, Helvetica, sans-serif;
+    
 }
 
 .admin-container{
-    width:90%;
-    max-width:1400px;
-    margin:40px auto;
-    background:rgba(255,255,255,.95);
-    padding:35px;
-    border-radius:25px;
-    box-shadow:0 15px 40px rgba(0,0,0,.15);
+   
+
+    width:95%;
+    max-width:1500px;
+    margin:30px auto;
 }
 
 .topo-admin{
@@ -141,4 +141,141 @@ button{
 button:hover{
     background:#26ceb7;
     transform:translateY(-2px);
+}
+
+/* =========================
+   RESPONSIVO
+========================= */
+/* =========================
+   RESPONSIVO
+========================= */
+
+@media (max-width: 768px){
+
+    .admin-container{
+        width:100%;
+        padding:10px;
+        box-sizing:border-box;
+        margin:15px auto;
+    }
+
+    h1{
+        font-size:28px;
+        margin-bottom:15px;
+    }
+
+    .total-pedidos{
+        font-size:16px;
+    }
+
+    .topo-admin{
+        display:flex;
+        flex-direction:column;
+        align-items:center;
+    }
+
+    .btn-menu{
+        width:100%;
+        max-width:350px;
+        margin:5px 0;
+        height:50px;
+    }
+
+    .table-container{
+        overflow-x:auto;
+        border-radius:15px;
+    }
+
+    .tabela-admin{
+        min-width:900px;
+    }
+
+    .tabela-admin th,
+    .tabela-admin td{
+        padding:10px;
+        font-size:14px;
+    }
+
+    td button{
+        width:140px;
+        height:auto;
+        padding:10px;
+        font-size:13px;
+    }
+
+    .pendente,
+    .pago,
+    .entregue{
+        padding:6px 12px;
+        font-size:13px;
+    }
+}
+
+@media (max-width: 480px){
+
+    body{
+        padding:5px;
+    }
+
+    h1{
+        font-size:22px;
+    }
+
+    .total-pedidos{
+        font-size:14px;
+    }
+
+    .btn-menu{
+        font-size:14px;
+        height:48px;
+    }
+
+    .tabela-admin th,
+    .tabela-admin td{
+        padding:8px;
+        font-size:12px;
+    }
+
+    td button{
+        width:120px;
+        font-size:12px;
+    }
+
+    .pendente,
+    .pago,
+    .entregue{
+        font-size:12px;
+        padding:5px 10px;
+    }
+}
+
+.table-container{
+    width: 100%;
+    overflow-x: auto;
+}
+
+.topo-admin{
+    text-align:center;
+    margin-bottom:30px;
+}
+
+.btn-menu{
+    margin:0 5px 20px;
+}
+
+h1{
+    text-align:center;
+    color:white;
+    font-size:42px;
+    margin-bottom:30px;
+    text-shadow:0 4px 12px rgba(0,0,0,.25);
+}
+
+.tabela-admin{
+    backdrop-filter:blur(10px);
+}
+
+td button{
+    width:170px;
+    font-size:14px;
 }
