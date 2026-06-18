@@ -51,7 +51,7 @@ $result = $conexao->query($sql);
         table{
     border-collapse: collapse;
     width: 100%;
-    background-color: white;
+    background-color: transparent;
 }
     </style>
 
