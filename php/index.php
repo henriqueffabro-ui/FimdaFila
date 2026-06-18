@@ -29,13 +29,14 @@ if(!isset($_SESSION["id"])){
 
 <?php if(isset($_SESSION['cargo']) && $_SESSION['cargo'] == 'Admin'){ ?>
 
-    <a href="adm.php">Painel Administrativo</a><br>
-    <a href="adm_lanches.php">Gerenciar Lanches</a><br>
-    <a href="cadastroLanche.php">Cadastrar Lanche</a><br>
-
+    <nav class="navbar-admin">
+    <a href="adm.php">Painel Administrativo</a>
+    <a href="adm_lanches.php">Gerenciar Lanches</a>
+    <a href="cadastroLanche.php">Cadastrar Lanche</a>
+</nav>
 <?php } ?>
 <div class="container-informacoes">
-    <h1 class="h1-nome">Opaa, <?php echo $_SESSION["nome"]; ?>!</h1>
+    <h1 class="h1-nome"><?php echo $_SESSION["nome"]; ?></h1>
 
     <h3 class="h3-dados">Dados do usuário</h3>
 
@@ -50,7 +51,7 @@ if(!isset($_SESSION["id"])){
     <p class="p-email"><strong>Email:</strong> <?php echo $_SESSION["email"]; ?></p>
     
     <button onclick="location.href='logout.php'" class="btn-sair">
-        sair
+     Sair
     </button>
 </div>
     <br><br>
@@ -90,7 +91,7 @@ if($result->num_rows > 0){
                 <div class='container-preco'>
                     <button class='btn-comprar'>
                         <a href='lanche.php?id={$lanche['id']}' class='link-comprar'>
-                            comprar
+                            Comprar
                         </a>
                     </button>
 

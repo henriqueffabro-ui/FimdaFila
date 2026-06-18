@@ -1,6 +1,15 @@
+body{
+    font-family:Arial, Helvetica, sans-serif;
+    background:linear-gradient(135deg,#92078b,#5b5fc7,#26ceb7);
+}
+
+
+h1, h2, h3, h4, button, p, li, h5, h6{
+    font-family:Arial, Helvetica, sans-serif;
+}
+
 .body-index{
-    background: linear-gradient(120deg, rgba(108, 0, 180, 0.925), rgba(26, 100, 122, 0.884));
-    
+
 }
 
 .container-informacoes{
@@ -150,4 +159,71 @@
     box-shadow: 4px 3px 10px rgba(137, 0, 201, 0.623);
 
     transform: translateY(-2px);
+}
+
+/* Navbar - Henrique */
+
+.navbar-admin{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+
+    background: rgba(19, 19, 19, 0.736);
+    padding: 18px;
+
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+
+    box-shadow: 0 4px 15px rgb(0, 0, 0);
+}
+
+.navbar-admin a{
+    text-decoration: none;
+    color: #fff;
+
+    background: linear-gradient(
+        160deg,
+        rgb(119, 7, 194),
+        rgba(218, 2, 189, 0.8)
+    );
+
+    padding: 12px 22px;
+    border-radius: 12px;
+
+    font-size: 18px;
+    font-weight: 600;
+
+    transition: .3s;
+}
+
+.navbar-admin a:hover{
+    transform: translateY(-3px);
+    box-shadow: 0 4px 15px rgba(173,0,253,.5);
+}
+
+/*Responsivo navbar*/
+
+@media (max-width: 768px){
+
+    .navbar-admin{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+        padding: 15px;
+    }
+
+    .navbar-admin a{
+        text-align: center;
+        font-size: 15px;
+        padding: 12px;
+    }
+
+    /* último botão ocupa a linha inteira */
+    .navbar-admin a:last-child{
+        grid-column: 1 / -1;
+    }
+
 }
