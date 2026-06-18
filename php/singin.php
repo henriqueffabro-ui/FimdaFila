@@ -63,7 +63,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title> cadastro birdiepedia </title>
+    <title> cadastro fim da fila </title>
+    <link rel="icon" href="../imgs/img-d-aba.webp" type="image/x-icon">
 
     <link rel="stylesheet" href="../css/estilo-singin.css">
     <link rel="stylesheet" href="../css/reset.css">

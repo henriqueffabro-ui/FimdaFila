@@ -14,8 +14,16 @@ if(!isset($_SESSION["id"])){
     <title>Home</title>
     <link rel="stylesheet" href="../css/index.css">
     <script src="../js/index.js"></script>
+    <link rel="icon" href="../imgs/img-d-aba.webp" type="image/x-icon">
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/estilo-index.css">
+    <link rel="stylesheet" href="../css/reset.css">
+    <!-- fontes :3 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kolker+Brush&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
 </head>
 <body  class="body-index">
 
@@ -33,21 +41,40 @@ if(!isset($_SESSION["id"])){
 
     <p class="p-nome"><strong>Nome:</strong> <?php echo $_SESSION["nome"]; ?></p>
 
-    <p class="p-email"><strong>Email:</strong> <?php echo $_SESSION["email"]; ?></p>
-
     <p class="p-turma"><strong>Turma:</strong> <?php echo $_SESSION["turma"]; ?></p>
 
     <p class="p-turno"><strong>Turno:</strong> <?php echo $_SESSION["turno"]; ?></p>
 
     <p class="p-cargo"><strong>Cargo:</strong> <?php echo $_SESSION["cargo"]; ?></p>
 
-    <button>
-        <a href="logout.php" >Sair</a>
-    </button> 
+    <p class="p-email"><strong>Email:</strong> <?php echo $_SESSION["email"]; ?></p>
+    
+    <button onclick="location.href='logout.php'" class="btn-sair">
+        sair
+    </button>
 </div>
+    <br><br>
+
+
+    <ol class="lista-de-sabores">
+        <h3>Sabores Disponíveis:</h3>
+        <br>
+        <li class="li-sabor">Mini Pizza de Calabresa</li>
+        <li class="li-sabor">Mini Pizza de Presunto e Queijo</li>
+        <li class="li-sabor">Mini Pizza de Chocolate Preto</li>
+        <li class="li-sabor">Mini Pizza de Frango Catupiry</li>
+        <li class="li-sabor">Hamburguer de Forno</li>
+        <li class="li-sabor">Salgado Assado de Pizza</li>
+        <li class="li-sabor">Salgado Assado de Frango</li>
+      
+    </ol>
 
 <br><br>
     
+
+
+    <hr class="hr-1">
+    <hr class="hr-2">
 
     <?php
        $sql = "SELECT * FROM lanches";
@@ -59,15 +86,19 @@ if($result->num_rows > 0){
         echo "
             <div class='container-lanche'>
                 <h2 class='h2-nome-lanche'>{$lanche['nome']}</h2>
-                <button class='btn-comprar'>
-                    <a href='lanche.php?id={$lanche['id']}' class='link-comprar'>
-                        comprar
-                    </a>
-                </button>
 
-                <h3 class='h3-valor'>Valor: R$ {$lanche['preco']}</h3>
-                <p class='p-quantidade'>Quantidade: {$lanche['qtd']}</p>
+                <div class='container-preco'>
+                    <button class='btn-comprar'>
+                        <a href='lanche.php?id={$lanche['id']}' class='link-comprar'>
+                            comprar
+                        </a>
+                    </button>
+
+                    <h3 class='h3-valor'>Valor: R$ {$lanche['preco']}</h3>
+                    <p class='p-quantidade'>Quantidade: {$lanche['qtd']}</p>
+                </div>
             </div>
+            <hr class='hr-2'>
             
         ";
     }

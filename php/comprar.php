@@ -155,6 +155,7 @@ if ($conexao->query($sql_pedido)) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="icon" href="../imgs/img-d-aba.webp" type="image/x-icon">
 </head>
 <body>
     <button onclick="location.href='index.php'">Voltar</button>

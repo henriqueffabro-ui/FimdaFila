@@ -73,6 +73,7 @@ if(isset($_GET["editar"])){
 <head>
 <meta charset="UTF-8">
 <title>Gerenciar Lanches</title>
+<link rel="icon" href="../imgs/img-d-aba.webp" type="image/x-icon">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="../css/adm_lanches.css">

@@ -20,6 +20,7 @@ $result = $conexao->query($sql);
 <html>
 <head>
     <title>Painel Administrativo</title>
+    <link rel="icon" href="../imgs/img-d-aba.webp" type="image/x-icon">
 
     <style>
 
