@@ -1,129 +1,170 @@
-<<!DOCTYPE html>
-<html lang="pt-BR">
+<!DOCTYPE html>
+<html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Painel Administrativo</title>
-    <link rel="stylesheet" href="adm.css">
+<meta charset="UTF-8">
+<title>Gerenciar Lanches</title>
+<link rel="stylesheet" href="admlanches.css">
+
+
+
 </head>
 <body>
 
-     <a href="index.php" class="btn-voltar">
-         Voltar
-    </a>
+<header>
+    <h2>Painel Administrativo</h2>
+</header>
+
+<button onclick="window.location.href='adm.php'">
+    Painel Administrativo
+</button>
+
+<button onclick="window.location.href='index.php'">
+    Voltar para a Home
+</button>
+
+<div class="container">
+
+<div class="card">
+
+<?php if($editar){ ?>
+
+<h3>Editar Lanche</h3>
+
+<form method="POST">
+
+    <input type="hidden" name="id"
+           value="<?= $editar['id'] ?>">
+
+    <label>Nome</label>
+    <input type="text" name="nome"
+           value="<?= $editar['nome'] ?>" required>
+
+    <label>Preço</label>
+    <input type="number" step="0.01"
+           name="preco"
+           value="<?= $editar['preco'] ?>" required>
+
+    <label>Quantidade</label>
+    <input type="number"
+           name="qtd"
+           value="<?= $editar['qtd'] ?>" required>
+
+    <button class="btn-salvar"
+            type="submit"
+            name="editar">
+        Atualizar
+    </button>
+
+</form>
+
+<?php } else { ?>
 
 
-    <div class="admin-container">
-
-    <div class="topo-admin">
-    <h1>Painel Administrativo</h1>
-    </div>
-
-    <div class="table-container">
-        <table class="tabela-admin">
-
-     <thead>
-
-        <tr>
-
-        <th><span class="th-badge">ID</span></th>
-        <th><span class="th-badge">Cliente</span></th>
-        <th><span class="th-badge">Lanche</span></th>
-        <th><span class="th-badge">Qtd</span></th>
-        <th><span class="th-badge">Valor</span></th>
-        <th><span class="th-badge">Retirada</span></th>
-        <th><span class="th-badge">Status</span></th>
-        <th><span class="th-badge">Ação</span></th>
-        
-        </tr>
-        
-     </thead>
-
-    <tbody>
-
-            <?php while($pedido = $result->fetch_assoc()) { ?>
-
-                <tr>
-
-                    <td><?= $pedido['id'] ?></td>
-
-                    <td><?= $pedido['nome_cliente'] ?></td>
-
-                    <td><?= $pedido['nome_lanche'] ?></td>
-
-                    <td><?= $pedido['qtd'] ?></td>
-
-                    <td>
-                        R$ <?= number_format($pedido['preco_lanche'], 2, ',', '.') ?>
-                    </td>
-
-                    <td>
-                        <?= date('d/m/Y', strtotime($pedido['data_retirada'])) ?>
-                    </td>
-
-                    <td class="<?= $pedido['status'] ?>">
-                        <?= ucfirst($pedido['status']) ?>
-                    </td>
-                
-
-                    <td>
-
-                        <?php if($pedido['status'] == 'pendente'){ ?>
-
-                            <form action="aprovar_pedido.php" method="POST">
-
-                                <input
-                                    type="hidden"
-                                    name="id_pedido"
-                                    value="<?= $pedido['id'] ?>"
-                                >
-
-                                <button type="submit">
-                                    Confirmar 
-                                </button>
-
-                            </form>
-
-                        <?php } ?>
-
-                        <?php if($pedido['status'] == 'pago'){ ?>
-
-                            <form action="entregar_pedido.php" method="POST">
-
-                                <input
-                                    type="hidden"
-                                    name="id_pedido"
-                                    value="<?= $pedido['id'] ?>"
-                                >
-
-                                <button type="submit">
-                                    Entregue
-                                </button>
-
-                            </form>
-
-                        <?php } ?>
-
-                        <?php if($pedido['status'] == 'entregue'){ ?>
-
-                            <span class="entregue-texto>
-                            </span>
-
-                        <?php } ?>
-
-                    </td>
-
-                </tr>
-
-            <?php } ?>
-
-            </tbody>
-
-        </table>
-
-    </div>
+<?php } ?>
 
 </div>
+
+<div class="card">
+
+<h3>Lanches Cadastrados</h3>
+
+<table>
+
+<tr>
+    <th>ID</th>
+    <th>Nome</th>
+    <th>Preço</th>
+    <th>Quantidade</th>
+    <th>Ações</th>
+</tr>
+
+<?php
+
+$resultado = mysqli_query($conexao,
+    "SELECT * FROM lanches ORDER BY id DESC");
+
+while($lanche = mysqli_fetch_assoc($resultado)){
+?>
+
+<tr>
+
+<td><?= $lanche["id"] ?></td>
+
+<td><?= $lanche["nome"] ?></td>
+
+<td>R$ <?= number_format($lanche["preco"],2,",",".") ?></td>
+
+<td><?= $lanche["qtd"] ?></td>
+
+<td>
+
+<a class="btn-editar"
+   href="?editar=<?= $lanche["id"] ?>">
+   Editar
+</a>
+
+<a class="btn-excluir"
+   href="?excluir=<?= $lanche["id"] ?>"
+   onclick="return confirm('Excluir este lanche?')">
+   Excluir
+</a>
+
+</td>
+
+</tr>
+
+<?php } ?>
+
+</table>
+
+</div>
+
+</div>
+
+<?php
+
+if($_SERVER["REQUEST_METHOD"] == "POST"){
+
+    $nome = $_POST["nome"];
+    $preco = $_POST["preco"];
+    $qtd = $_POST["qtd"];
+
+    $stmt = $conexao->prepare("
+        INSERT INTO lanches(nome, preco, qtd)
+        VALUES(?, ?, ?)
+    ");
+
+    $stmt->bind_param(
+        "sdi",
+        $nome,
+        $preco,
+        $qtd
+    );
+
+    if($stmt->execute()){
+        echo "Lanche cadastrado com sucesso!";
+    } else {
+        echo "Erro: " . $stmt->error;
+    }
+}
+
+<form method="POST">
+
+    <label>Nome do Lanche</label><br>
+    <input type="text" name="nome" required>
+    <br><br>
+
+    <label>Preço</label><br>
+    <input type="number" step="0.01" name="preco" required>
+    <br><br>
+
+    <label>Quantidade em Estoque</label><br>
+    <input type="number" name="qtd" required>
+    <br><br>
+
+
+</form>
+
 
 </body>
 </html>
