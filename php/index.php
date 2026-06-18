@@ -17,7 +17,7 @@ if(!isset($_SESSION["id"])){
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
-<body>
+<body  class="body-index">
 
 <?php if(isset($_SESSION['cargo']) && $_SESSION['cargo'] == 'Admin'){ ?>
 
@@ -26,34 +26,35 @@ if(!isset($_SESSION["id"])){
     <a href="cadastroLanche.php">Cadastrar Lanche</a><br>
 
 <?php } ?>
+<div class="container-informacoes">
+    <h1 class="h1-nome">Opaa, <?php echo $_SESSION["nome"]; ?>!</h1>
 
-<h1>Opaa, <?php echo $_SESSION["nome"]; ?>!</h1>
+    <h3 class="h3-dados">Dados do usuário</h3>
 
-<h3>Dados do usuário</h3>
+    <p class="p-nome"><strong>Nome:</strong> <?php echo $_SESSION["nome"]; ?></p>
 
-<p><strong>Nome:</strong> <?php echo $_SESSION["nome"]; ?></p>
+    <p class="p-email"><strong>Email:</strong> <?php echo $_SESSION["email"]; ?></p>
 
-<p><strong>Email:</strong> <?php echo $_SESSION["email"]; ?></p>
+    <p class="p-turma"><strong>Turma:</strong> <?php echo $_SESSION["turma"]; ?></p>
 
-<p><strong>Turma:</strong> <?php echo $_SESSION["turma"]; ?></p>
+    <p class="p-turno"><strong>Turno:</strong> <?php echo $_SESSION["turno"]; ?></p>
 
-<p><strong>Turno:</strong> <?php echo $_SESSION["turno"]; ?></p>
+    <p class="p-cargo"><strong>Cargo:</strong> <?php echo $_SESSION["cargo"]; ?></p>
 
-<p><strong>Cargo:</strong> <?php echo $_SESSION["cargo"]; ?></p>
-
-<a href="logout.php">Sair</a>
+    <button>
+        <a href="logout.php" >Sair</a>
+    </button> 
+</div>
 
 <br><br><br><br>
-
- <h1>Todos R$8,00</h1>
-    <ol>
-        <li>Mini Pizza de Calabresa</li>
-        <li>Mini Pizza de Presunto e Queijo</li>
-        <li>Mini Pizza de Chocolate Preto</li>
-        <li>Mini Pizza de Frango Catupiry</li>
-        <li>Hamburguer de Forno</li>
-        <li>Salgado Assado de Pizza</li>
-        <li>Salgado Assado de Frango</li>
+    <ol class="lista-de-sabores">
+        <li class="li-sabor">Mini Pizza de Calabresa</li>
+        <li class="li-sabor">Mini Pizza de Presunto e Queijo</li>
+        <li class="li-sabor">Mini Pizza de Chocolate Preto</li>
+        <li class="li-sabor">Mini Pizza de Frango Catupiry</li>
+        <li class="li-sabor">Hamburguer de Forno</li>
+        <li class="li-sabor">Salgado Assado de Pizza</li>
+        <li class="li-sabor">Salgado Assado de Frango</li>
       
     </ol>
 
@@ -65,15 +66,18 @@ if($result->num_rows > 0){
 
     foreach($result as $lanche){
         echo "
-            <div class='lanche'>
-                <a href='lanche.php?id={$lanche['id']}'>
-                    {$lanche['nome']}
-                </a>
+            <div class='container-lanche'>
+                <h2 class='h2-nome-lanche'>{$lanche['nome']}</h2>
+                <button class='btn-comprar'>
+                    <a href='lanche.php?id={$lanche['id']}' class='link-comprar'>
+                        comprar
+                    </a>
+                </button>
 
-                <p>Valor: R$ {$lanche['preco']}</p>
-                <p>Quantidade: {$lanche['qtd']}</p>
+                <h3 class='h3-valor'>Valor: R$ {$lanche['preco']}</h3>
+                <p class='p-quantidade'>Quantidade: {$lanche['qtd']}</p>
             </div>
-            <hr>
+            
         ";
     }
 
