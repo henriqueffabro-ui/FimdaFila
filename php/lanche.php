@@ -31,6 +31,7 @@ while ($data->format('N') >= 6) { // 6 = sábado, 7 = domingo
 <html>
 <head>
     <title><?php echo $lanche['nome']; ?></title>
+    <link rel="icon" href="../imgs/img-d-aba.webp" type="image/x-icon">
     <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>

@@ -32,6 +32,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 <head>
     <meta charset="UTF-8">
     <title>Cadastrar Lanche</title>
+    <link rel="icon" href="../imgs/img-d-aba.webp" type="image/x-icon">
 
     
     <link rel="stylesheet" href="../css/cadastroLanche.css">
