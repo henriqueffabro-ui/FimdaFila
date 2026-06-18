@@ -17,7 +17,7 @@ body{
 }
 
 .container{
-    background: white;
+    background: rgb(32, 32, 32);
     width: 100%;
     max-width: 600px;
     padding: 35px;
@@ -26,14 +26,14 @@ body{
 }
 
 h1{
-    color: #7c0476;
+    color: #b806af;
     text-align: center;
     margin-bottom: 20px;
 }
 
 p{
     margin: 15px 0;
-    color: #444;
+    color: #e2e2e2;
     font-size: 18px;
 }
 
@@ -59,7 +59,7 @@ form{
 }
 
 label{
-    color: #333;
+    color: #e2e2e2;
     font-weight: 500;
 }
 
@@ -73,17 +73,19 @@ button{
     padding: 14px;
     border: none;
     border-radius: 10px;
-    background: #7c0476;
+    background: #91048a;
     color: white;
     font-size: 18px;
     font-weight: bold;
     cursor: pointer;
-    transition: 0.3s;
+    transition: 0.9s;
 }
 
 button:hover{
     background: #26ceb7;
-    transform: translateY(-2px);
+    transform: translateY(-4px);
+
+    box-shadow: 0 8px 20px rgba(0, 168, 126, 0.548);
 }
 
 .data-retirada{
@@ -92,7 +94,7 @@ button:hover{
     border-left: 5px solid #26ceb7;
     padding: 12px;
     border-radius: 8px;
-    color: #333;
+    color: #e2e2e2;
 }
 
 .btn-voltar{
