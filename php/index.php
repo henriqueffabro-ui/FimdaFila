@@ -46,17 +46,8 @@ if(!isset($_SESSION["id"])){
     </button> 
 </div>
 
-<br><br><br><br>
-    <ol class="lista-de-sabores">
-        <li class="li-sabor">Mini Pizza de Calabresa</li>
-        <li class="li-sabor">Mini Pizza de Presunto e Queijo</li>
-        <li class="li-sabor">Mini Pizza de Chocolate Preto</li>
-        <li class="li-sabor">Mini Pizza de Frango Catupiry</li>
-        <li class="li-sabor">Hamburguer de Forno</li>
-        <li class="li-sabor">Salgado Assado de Pizza</li>
-        <li class="li-sabor">Salgado Assado de Frango</li>
-      
-    </ol>
+<br><br>
+    
 
     <?php
        $sql = "SELECT * FROM lanches";
