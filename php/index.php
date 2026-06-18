@@ -54,6 +54,7 @@ if(!isset($_SESSION["id"])){
 </div>
     <br><br>
 
+<<<<<<< HEAD
     <ol class="lista-de-sabores">
         <h3>Sabores Disponíveis:</h3>
         <br>
@@ -66,6 +67,10 @@ if(!isset($_SESSION["id"])){
         <li class="li-sabor">Salgado Assado de Frango</li>
       
     </ol>
+=======
+<br><br>
+    
+>>>>>>> 930ecbf0826b227a568a72388873ba99a3e74d01
 
     <hr class="hr-1">
     <hr class="hr-2">
