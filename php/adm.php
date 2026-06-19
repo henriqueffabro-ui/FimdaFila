@@ -70,7 +70,7 @@ $result = $conexao->query($sql);
 <h1>Painel Administrativo</h1>
 
 <div class="table-container">
-<table>
+<table class="tabela-admin">
 
 <tr>
     <th>ID</th>

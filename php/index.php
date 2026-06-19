@@ -27,6 +27,10 @@ if(!isset($_SESSION["id"])){
 </head>
 <body  class="body-index">
 
+<button onclick="location.href='../sobre.html'" class="btn-sair">
+    Sobre o Projeto
+</button>
+
 <?php if(isset($_SESSION['cargo']) && $_SESSION['cargo'] == 'Admin'){ ?>
 
     <nav class="navbar-admin">
@@ -111,7 +115,7 @@ if($result->num_rows > 0){
     ?>
 
 
-<h2>Meus Pedidos</h2>
+<h2 class="titulo-pedidos">Meus Pedidos</h2>
 
 <?php
 
@@ -131,7 +135,7 @@ if(isset($_SESSION['id'])){
     if($result_pedidos->num_rows > 0){
 
         echo "
-        <table>
+        <table class='tabela-pedidos'>
             <tr>
                 <th>Lanche</th>
                 <th>Valor</th>
@@ -182,7 +186,7 @@ if(isset($_SESSION['id'])){
 
 
                 <td>
-                    <button onclick=\"mostrarCodigo('{$pedido['codigo']}')\">
+                    <button class='btn-ampliar' onclick=\"mostrarCodigo('{$pedido['codigo']}')\">
                         Ampliar
                     </button>
                 </td>
@@ -195,7 +199,7 @@ if(isset($_SESSION['id'])){
 
     }else{
 
-        echo "<p>Você ainda não possui pedidos.</p>";
+        echo "<p class='sem-pedidos' >Você ainda não possui pedidos.</p>";
 
     }
 

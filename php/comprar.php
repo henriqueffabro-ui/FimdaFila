@@ -115,6 +115,8 @@ $sql_pedido = "INSERT INTO pedido (
 if ($conexao->query($sql_pedido)) {
 
     echo "
+
+    <div class='container-pedido'>
         <h2>Pedido criado com sucesso!</h2>
 
         <p><strong>Lanche:</strong> {$lanche['nome']}</p>
@@ -131,7 +133,7 @@ if ($conexao->query($sql_pedido)) {
 
         <h3>Pagamento via PIX</h3>
 
-        <img src='imgs/qrcode_www.youtube.com.png' alt='QR Code PIX' width='200'>
+        <img src='../imgs/qrcode_www.youtube.com.png' alt='QR Code PIX' width='200'>
 
         <p>Chave PIX: 666</p>
 
@@ -140,6 +142,7 @@ if ($conexao->query($sql_pedido)) {
         <p>
             Após realizar o pagamento, aguarde a confirmação do administrador.
         </p>
+    </div>
     ";
 
 } else {
@@ -156,8 +159,11 @@ if ($conexao->query($sql_pedido)) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="icon" href="../imgs/img-d-aba.webp" type="image/x-icon">
+    <link rel="stylesheet" href="../css/compra.css">
 </head>
 <body>
-    <button onclick="location.href='index.php'">Voltar</button>
+    <button class="btn-voltar" onclick="location.href='index.php'">
+    Voltar
+</button>
 </body>
 </html>

@@ -1,0 +1,167 @@
+body{
+    margin: 0;
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    background: linear-gradient(
+        135deg,
+        #92078b,
+        #5b5fc7,
+        #26ceb7
+    );
+
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.container-pedido{
+    background: rgb(32, 32, 32);
+
+    width: 90%;
+    max-width: 700px;
+
+    padding: 30px;
+
+    border-radius: 25px;
+
+    color: #e0e0e0;
+
+    text-align: center;
+
+    box-shadow: 0 10px 20px rgba(0,0,0,.35);
+}
+
+.container-pedido h2{
+    color: #c83dff;
+    margin-bottom: 25px;
+}
+
+.container-pedido h3{
+    color: #c83dff;
+    margin-top: 25px;
+}
+
+.container-pedido p{
+    font-size: 18px;
+    margin: 12px 0;
+}
+
+.container-pedido strong{
+    color: white;
+}
+
+.container-pedido hr{
+    border: none;
+    height: 1px;
+    background: rgba(255,255,255,.2);
+    margin: 25px 0;
+}
+
+.qrcode{
+    margin: 20px 0;
+    width: 220px;
+    max-width: 100%;
+    border-radius: 15px;
+    background: white;
+    padding: 10px;
+}
+
+.codigo-retirada{
+    font-size: 32px;
+    font-weight: bold;
+    letter-spacing: 8px;
+
+    background: linear-gradient(
+        160deg,
+        rgb(119, 7, 194),
+        rgba(218, 2, 189, 0.8)
+    );
+
+    color: white;
+
+    padding: 15px;
+
+    border-radius: 15px;
+
+    display: inline-block;
+
+    margin: 15px 0;
+}
+
+.btn-voltar{
+    border-radius: 20px;
+    border: 2px solid #9408d4;
+
+    background: linear-gradient(
+        160deg,
+        rgb(119, 7, 194),
+        rgba(218, 2, 189, 0.8)
+    );
+
+    color: #ededed;
+
+    font-weight: 600;
+
+    padding: 12px 25px;
+
+    cursor: pointer;
+
+    transition: .5s;
+
+    margin-top: 25px;
+}
+
+.btn-voltar:hover{
+    background: linear-gradient(
+        160deg,
+        rgb(81, 5, 133),
+        rgba(148, 1, 128, 0.8)
+    );
+
+    box-shadow: 4px 3px 10px rgba(137,0,201,.6);
+
+    transform: translateY(-2px);
+}
+
+.status-pendente{
+    color: #ffb74d;
+    font-weight: bold;
+}
+
+.pix-chave{
+    background: rgba(255,255,255,.08);
+    padding: 10px;
+    border-radius: 10px;
+    margin-top: 10px;
+}
+
+@media(max-width:768px){
+
+    .container-pedido{
+        width: 95%;
+        padding: 20px;
+    }
+
+    .container-pedido p{
+        font-size: 16px;
+    }
+
+    .codigo-retirada{
+        font-size: 24px;
+        letter-spacing: 4px;
+    }
+}
+
+ button{
+    background: linear-gradient(
+        160deg,
+        rgb(119, 7, 194),
+        rgba(218, 2, 189, 0.8)
+    );
+
+    
+    font-family: Arial, Helvetica, sans-serif;
+ }
