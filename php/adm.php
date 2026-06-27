@@ -139,19 +139,10 @@ $result = $conexao->query($sql);
             value="<?= $pedido['id'] ?>"
         >
 
-        <button type="submit">
-            Marcar como Entregue
-        </button>
-
     </form>
 
 <?php } ?>
 
-<?php if($pedido['status'] == 'entregue'){ ?>
-
-    ✅ Entregue
-
-<?php } ?>
 
 </td>
 

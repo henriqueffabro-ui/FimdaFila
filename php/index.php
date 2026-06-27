@@ -90,6 +90,7 @@ if($result->num_rows > 0){
     foreach($result as $lanche){
         echo "
             <div class='container-lanche'>
+                <img src='../imgLanches/{$lanche['imagem']}'</img>
                 <h2 class='h2-nome-lanche'>{$lanche['nome']}</h2>
 
                 <div class='container-preco'>

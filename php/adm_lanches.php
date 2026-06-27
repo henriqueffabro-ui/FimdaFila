@@ -29,10 +29,49 @@ if(isset($_POST["editar"])){
     $preco = $_POST["preco"];
     $qtd = $_POST["qtd"];
 
+    $sqlImagem = "";
+
+    if(isset($_FILES["imagem"]) &&
+       $_FILES["imagem"]["error"] == 0){
+
+        // pega a imagem antiga
+        $resultado = mysqli_query(
+            $conexao,
+            "SELECT imagem
+             FROM lanches
+             WHERE id='$id'"
+        );
+
+        $dados = mysqli_fetch_assoc($resultado);
+
+        // apaga a imagem antiga
+        if($dados["imagem"] &&
+           file_exists($dados["imagem"])){
+            unlink($dados["imagem"]);
+        }
+
+        // salva a nova
+        $ext = pathinfo(
+            $_FILES["imagem"]["name"],
+            PATHINFO_EXTENSION
+        );
+
+        $nomeArquivo =
+            uniqid() . "." . $ext;
+
+        move_uploaded_file(
+    $_FILES["imagem"]["tmp_name"],
+    "../imgLanches/" . $nomeArquivo
+);
+
+        $sqlImagem = ", imagem='../imgLanches/$nomeArquivo'";
+    }
+
     $sql = "UPDATE lanches
             SET nome='$nome',
                 preco='$preco',
                 qtd='$qtd'
+                $sqlImagem
             WHERE id='$id'";
 
     mysqli_query($conexao, $sql);
@@ -103,28 +142,43 @@ if(isset($_GET["editar"])){
 
 <div class="card">
 
-<?php if($editar){ ?>
-
 <h3>Editar Lanche</h3>
 
-<form method="POST">
+<form method="POST" enctype="multipart/form-data">
 
-    <input type="hidden" name="id"
-           value="<?= $editar['id'] ?>">
+    <input type="hidden"
+           name="id"
+           value="<?= $editar['nome'] ?? '' ?>"
 
     <label>Nome</label>
-    <input type="text" name="nome"
-           value="<?= $editar['nome'] ?>" required>
+    <input type="text"
+           name="nome"
+           value="<?= $editar['nome'] ?? '' ?>"
+           required>
 
     <label>Preço</label>
-    <input type="number" step="0.01"
+    <input type="number"
+           step="0.01"
            name="preco"
-           value="<?= $editar['preco'] ?>" required>
+           value="<?= $editar['nome'] ?? '' ?>"
+           required>
 
     <label>Quantidade</label>
     <input type="number"
            name="qtd"
-           value="<?= $editar['qtd'] ?>" required>
+           value="<?= $editar['nome'] ?? '' ?>"
+           required>
+
+    <?php if($editar && !empty($editar['imagem'])){ ?>
+    <label>Imagem atual</label><br>
+    <img src="../<?= $editar['imagem'] ?>"
+         width="120"><br><br>
+<?php } ?>
+
+    <label>Alterar imagem</label>
+    <input type="file"
+           name="imagem"
+           accept="image/*">
 
     <button class="btn-salvar"
             type="submit"
@@ -133,29 +187,6 @@ if(isset($_GET["editar"])){
     </button>
 
 </form>
-
-<?php } else { ?>
-
-<h3>Cadastrar Lanche</h3>
-
-<form method="POST">
-
-    <label>Nome</label>
-    <input type="text" name="nome" required>
-
-    <label>Preço</label>
-    <input type="number" step="0.01"
-           name="preco" required>
-
-    <label>Quantidade</label>
-    <input type="number"
-           name="qtd" required>
-
-  
-
-</form>
-
-<?php } ?>
 
 </div>
 
